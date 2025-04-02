@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,14 +18,13 @@
                     <span>Digite sua idade: </span>
                     <input type="text" id="idade" placeholder="Digite sua idade">
                 </label>
-                <button onclick="verificar()">Verificar</button>
-                <span class="resposta"></span>
+                <button onclick="verificar()" id="btn-verificacao">Verificar</button>
+                <span id="resposta"></span>
             </article>
 
             <article class="regras">
                 <h1>Regras do Game</h1>
-                <video src="src/video/regras.webm" controls></video>
-                <button>Iniciar</button>
+                <video src="src/video/regras.webm" controls width="70%"></video>
             </article>
 
             <article class="game">
@@ -51,9 +50,6 @@
                 </label>
             </article>
         </section>
-        <button id="start" onclick="startGame()">
-            Veja as regras
-        </button>
     </main>
     <footer class="container-footer">
         <p>Desenvolvido por <span>Fernando Barbosa</span></p>
