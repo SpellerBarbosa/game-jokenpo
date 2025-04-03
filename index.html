@@ -8,9 +8,6 @@
     <title>Document</title>
   </head>
   <body>
-    <header class="container-header">
-        <h1>Pedra, Papel, Tesoura, Lagarto, Spok</h1>
-    </header>    
     <main class="container-principal">
         <section id="game">
             <article class="verificacao">
@@ -25,34 +22,38 @@
             <article class="regras">
                 <h1>Regras do Game</h1>
                 <video src="src/video/regras.webm" controls width="70%"></video>
+                <button id="vamos_jogar" onclick="vamosAoJogo()">Vamos ao Jogo</button>
             </article>
 
-            <article class="game">
-                <label>
-                    <input type="radio" name="pedra" id="pedra"  value="pedra">
+            <article id="jokenpo">
+                <label class="card pedra">
+                    <span>Pedra</span>
                     <img src="src/img/pedra.png" alt="pedra">
+                    <input type="radio" name="jokenpo" id="pedra"  value="pedra">
                 </label>
-                <label>
-                    <input type="radio" name="papel" id="papel"  value="papel">
+                <label class="card papel">
+                    <span>Papel</span>
                     <img src="src/img/papel.png" alt="papel">
+                    <input type="radio" name="jokenpo" id="papel"  value="papel">
                 </label>
-                <label>
-                    <input type="radio" name="tesoura" id="tesoura"  value="tesoura">
+                <label class="card tesoura">
+                    <span>Tesoura</span>
                     <img src="src/img/tesoura.png" alt="tesoura">
+                    <input type="radio" name="jokenpo" id="tesoura"  value="tesoura">
                 </label>
-                <label>
-                    <input type="radio" name="lagarto" id="lagarto"  value="lagarto">
+                <label class="card lagarto">
+                    <span>Lagarto</span>
                     <img src="src/img/lagarto.png" alt="lagarto">
+                    <input type="radio" name="jokenpo" id="lagarto"  value="lagarto">
                 </label>
-                <label>
-                    <input type="radio" name="spok" id="spok"  value="spok">
+                <label class="card spok">
+                    <span>Spok</span>
                     <img src="src/img/spok.png" alt="spok">
+                    <input type="radio" name="jokenpo" id="spok"  value="spok">
                 </label>
+                <button onclick="jogar()">Jogar</button>
             </article>
         </section>
     </main>
-    <footer class="container-footer">
-        <p>Desenvolvido por <span>Fernando Barbosa</span></p>
-    </footer>
   </body>
 </html>

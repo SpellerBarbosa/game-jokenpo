@@ -3,18 +3,12 @@
     margin: 0;
 }
 
-.container-header {
-    max-width: 100%;
-    height: 10vh;
-}
-
 .container-principal {
     max-width: 100%;
-    height: 85vh;
+    height: 100vh;
     background-image: url('../img/background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    border: solid 1px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,8 +24,8 @@
 }
 
 #game {
-    width: 95%;
-    height: 40%;
+    width: 98%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,17 +34,29 @@
 }
 
 #game .verificacao {
+    background-color: #ffffffc0;
     width: 100%;
     height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    border-radius: 25px;
+}
+
+#game .verificacao label{
+    width: 100%;
+    height: 30%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
 #game .verificacao input {
     font-size: 16px;
     text-align: center;
+    width: 100%;
+    font-size: 16px;
 }
 
 #game .verificacao button {
@@ -101,11 +107,80 @@
     border-radius: 30px;
 }
 
-#game .game {
+#game #jokenpo {
+    background-color: #ffffffa2;
+    width: 98%;
+    height: 100%;
     display: none;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    position: relative;
 }
 
-.container-footer {
-    max-width: 100%;
-    height: 5vh;
+#game #jokenpo .card{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px beige;
+}
+
+#game #jokenpo .card img{
+    width: 50%;
+}
+
+#game #jokenpo .pedra{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#game #jokenpo .papel{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#game #jokenpo .tesoura{
+    grid-column: 1;
+    grid-row: 3;
+    
+}
+
+#game #jokenpo .lagarto {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+#game #jokenpo .spok {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#game #jokenpo button{
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform:  translateX(-50%);
+    background-color: rgb(11, 180, 236);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: -1px -1px black;
+    border-radius: 10px;
+}
+
+#game #jokenpo button:hover{
+    background-color: rgb(43, 253, 43);
+    color: black;
+    text-shadow: -1px -1px white;
+}
+
+#game .resultado {
+    position: absolute;
+    width: 98%;
+    height: 60%;
+    background: #fff;
+    border-radius: 25px;
 }
