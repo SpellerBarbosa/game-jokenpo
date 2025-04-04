@@ -130,7 +130,7 @@ function jogar(){
       <section>
           <div class="cpu">
             <span> Computador escolheu </span>
-            <img  src="${imagens[3]}" />
+            <img  src="${imagens[4]}" />
          </div>
          <p> VS </p>
          <div class="player">
