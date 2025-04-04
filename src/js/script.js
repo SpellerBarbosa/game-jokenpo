@@ -10,6 +10,11 @@ imagem.width = 120;
 let resultado = document.createElement('div');
 resultado.classList.add('resultado');
 let containerGame = document.getElementById('game');
+let btnFechar = document.createElement('button');
+btnFechar.textContent = "Fechar Resultado";
+btnFechar.classList.add('btnFechar');
+btnFechar.onclick = () => fecharResultado();
+let intro = document.querySelector('.intro');
 
 
 let btnRegras = document.createElement('button');
@@ -58,8 +63,9 @@ function jogar(){
    let index = Math.floor(Math.random() * 5 );
    let escolhaComputador = opcoes[index];
    
+   console.log(escolhaJogador.value)
 
-   if(escolhaComputador === "tesoura" && escolhaJogador === "papel"){
+   if(escolhaComputador === "tesoura" && escolhaJogador.value === "papel"){
       resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -71,10 +77,10 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[1]}" />
          </div>
-         <span> Você perdeu, Tesoura corta Papel </span>
+         <span class="msg"> Você perdeu, Tesoura corta Papel </span>
       </section>
       `
-   }else if(escolhaComputador === "papel" && escolhaComputador === "pedra"){
+   }else if(escolhaComputador === "papel" && escolhaJogador.value === "pedra"){
       resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -86,10 +92,10 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[0]}" />
          </div>
-         <span> Você perdeu, Papel cobre pedra </span>
+         <span class="msg"> Você perdeu, Papel cobre pedra </span>
       </section>
       `
-   }else if(escolhaComputador === "pedra" && escolhaJogador === "lagarto"){
+   }else if(escolhaComputador === "pedra" && escolhaJogador.value === "lagarto"){
       resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -101,10 +107,10 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[3]}" />
          </div>
-         <span> Você perdeu, Pedra esmaga Lagarto </span>
+         <span class="msg"> Você perdeu, Pedra esmaga Lagarto </span>
       </section>
       `
-   }else if(escolhaComputador === "lagarto" && escolhaJogador === "spok"){
+   }else if(escolhaComputador === "lagarto" && escolhaJogador.value === "spok"){
       resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -116,10 +122,10 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[4]}" />
          </div>
-         <span> Você perdeu, Lagarto envenena Spock </span>
+         <span class="msg"> Você perdeu, Lagarto envenena Spock </span>
       </section>
       `
-   }else if(escolhaComputador === "spok" && escolhaJogador ==="tesoura"){
+   }else if(escolhaComputador === "spok" && escolhaJogador.value ==="tesoura"){
            resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -131,175 +137,25 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[2]}" />
          </div>
-         <span> Você perdeu, Spock derrete Tesoura </span>
+         <span class="msg"> Você perdeu, Spock derrete Tesoura </span>
       </section>
       `
-   }else if(escolhaComputador === "tesoura" && escolhaJogador === "lagarto"){
+   }else if(escolhaComputador === "tesoura" && escolhaJogador.value === "lagarto"){
       resultado.innerHTML = `
       <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[2]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[3]}" />
-         </div>
-         <span> Você perdeu, Tesoura decapita Lagarto </span>
+            <div class="cpu">
+               <span> Computador escolheu </span>
+               <img  src="${imagens[2]}" />
+            </div>
+            <p> VS </p>
+            <div class="player">
+               <span> Voce Escolheu </span>
+               <img src="${imagens[3]}" />
+            </div>
+         <span class="msg"> Você perdeu, Tesoura decapita Lagarto </span>
       </section>
       `
-   }else if(escolhaComputador === "lagarto" && escolhaJogador === "papel"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[3]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[1]}" />
-         </div>
-         <span> Você perdeu, Lagarto come Papel </span>
-      </section>
-      `
-   }else if(escolhaComputador === "papel" && escolhaJogador === "spok"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[1]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[4]}" />
-         </div>
-         <span> Você perdeu, Papel refuta Spock </span>
-      </section>
-      `
-   }else if(escolhaComputador === "spok" && escolhaJogador === "pedra"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[4]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[0]}" />
-         </div>
-         <span> Você perdeu, Spock vaporiza Pedra </span>
-      </section>
-      `
-   }else if(escolhaComputador === "pedra" && escolhaJogador === "tesoura"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[0]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[2]}" />
-         </div>
-         <span> Você perdeu, Pedra amassa Tesoura </span>
-      </section>
-      `
-   }else if(escolhaJogador === "tesoura" && escolhaComputador === "papel"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[2]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[1]}" />
-         </div>
-         <span> Você Ganhou, Tesoura corta Papel </span>
-      </section>
-      `
-   }else if(escolhaJogador === "papel" && escolhaComputador === "pedra"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[1]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[0]}" />
-         </div>
-         <span> Você Ganhou, Papel cobre Pedra </span>
-      </section>
-      `
-   }else if(escolhaJogador === "pedra" && escolhaComputador === "lagarto"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[0]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[3]}" />
-         </div>
-         <span> Você Ganhou, Pedra esmaga Lagarto </span>
-      </section>
-      `
-   }else if(escolhaJogador === "lagarto" && escolhaComputador === "spok"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[3]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[4]}" />
-         </div>
-         <span> Você Ganhou, Lagarto envenena Spock </span>
-      </section>
-      `
-   }else if(escolhaJogador === "spok" && escolhaComputador === "tesoura"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[4]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[2]}" />
-         </div>
-         <span> Você Ganhou, Spock derrete tesoura </span>
-      </section>
-      `
-   }else if(escolhaJogador === "tesoura" && escolhaComputador === "lagarto"){
-      resultado.innerHTML = `
-      <section>
-          <div class="cpu">
-            <span> Computador escolheu </span>
-            <img  src="${imagens[2]}" />
-         </div>
-         <p> VS </p>
-         <div class="player">
-            <span> Voce Escolheu </span>
-            <img src="${imagens[3]}" />
-         </div>
-         <span> Você Ganhou, Tesoura decapita Lagarto </span>
-      </section>
-      `
-   }else if(escolhaJogador === "lagarto" && escolhaComputador === "papel"){
+   }else if(escolhaComputador === "lagarto" && escolhaJogador.value === "papel"){
       resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -311,10 +167,10 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[1]}" />
          </div>
-         <span> Você Ganhou, Lagarto come Papel </span>
+         <span class="msg"> Você perdeu, Lagarto come Papel </span>
       </section>
       `
-   }else if(escolhaJogador === "papel" && escolhaComputador === "spok"){
+   }else if(escolhaComputador === "papel" && escolhaJogador.value === "spok"){
       resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -326,10 +182,10 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[4]}" />
          </div>
-         <span> Você Ganhou, Papel refuta Spock </span>
+         <span class="msg"> Você perdeu, Papel refuta Spock </span>
       </section>
       `
-   }else if(escolhaJogador === "spok" && escolhaComputador === "pedra"){
+   }else if(escolhaComputador === "spok" && escolhaJogador.value === "pedra"){
       resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -341,10 +197,10 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[0]}" />
          </div>
-         <span> Você Ganhou, Spock vaporiza Pedra </span>
+         <span class="msg"> Você perdeu, Spock vaporiza Pedra </span>
       </section>
       `
-   }else if(escolhaJogador === "pedra" && escolhaComputador === "tesoura"){
+   }else if(escolhaComputador === "pedra" && escolhaJogador.value === "tesoura"){
       resultado.innerHTML = `
       <section>
           <div class="cpu">
@@ -356,9 +212,241 @@ function jogar(){
             <span> Voce Escolheu </span>
             <img src="${imagens[2]}" />
          </div>
-         <span> Você Ganhou, Pedra amassa Tesoura </span>
+         <span class="msg"> Você perdeu, Pedra amassa Tesoura </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "tesoura" && escolhaComputador === "papel"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[2]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[1]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Tesoura corta Papel </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "papel" && escolhaComputador === "pedra"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[1]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[0]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Papel cobre Pedra </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "pedra" && escolhaComputador === "lagarto"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[0]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[3]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Pedra esmaga Lagarto </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "lagarto" && escolhaComputador === "spok"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[3]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[4]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Lagarto envenena Spock </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "spok" && escolhaComputador === "tesoura"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[4]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[2]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Spock derrete tesoura </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "tesoura" && escolhaComputador === "lagarto"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[2]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[3]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Tesoura decapita Lagarto </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "lagarto" && escolhaComputador === "papel"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[3]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[1]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Lagarto come Papel </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "papel" && escolhaComputador === "spok"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[1]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[4]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Papel refuta Spock </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "spok" && escolhaComputador === "pedra"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[4]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[0]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Spock vaporiza Pedra </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "pedra" && escolhaComputador === "tesoura"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[0]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[2]}" />
+         </div>
+         <span class="msg"> Você Ganhou, Pedra amassa Tesoura </span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "pedra" && escolhaComputador === "pedra"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[0]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[0]}" />
+         </div>
+         <span class="msg">Empate, ambos jogaram  pedra</span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "papel" && escolhaComputador === "papel"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[1]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[1]}" />
+         </div>
+         <span class="msg">Empate, ambos jogaram  Papel</span>
+      </section>
+      `
+   }else if( escolhaJogador.value === "tesoura" && escolhaComputador === "tesoura"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[2]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[2]}" />
+         </div>
+         <span class="msg">Empate, ambos jogaram  Tesoura</span>
+      </section>
+      `
+   }else if(escolhaJogador.value === "lagarto" && escolhaComputador === "lagarto"){
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[3]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[3]}" />
+         </div>
+         <span class="msg">Empate, ambos jogaram  Lagarto</span>
+      </section>
+      `
+   }else{
+      resultado.innerHTML = `
+      <section>
+          <div class="cpu">
+            <span> Computador escolheu </span>
+            <img  src="${imagens[4]}" />
+         </div>
+         <p> VS </p>
+         <div class="player">
+            <span> Voce Escolheu </span>
+            <img src="${imagens[4]}" />
+         </div>
+         <span class="msg">Empate, ambos jogaram  Spock</span>
       </section>
       `
    }
+   intro.style.display = 'none';
+   game.style.display = 'none';
+   resultado.appendChild(btnFechar);
    containerGame.appendChild(resultado);
 }
+
+function fecharResultado(){
+   window.location.reload();
+};

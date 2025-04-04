@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .container-principal {
@@ -13,6 +14,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.container-principal .intro{
+    width: 90%;
+    height: 30%;
+    background-color: #ffffffa2;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.container-principal .intro h3{
+    width: 80%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.container-principal .intro p{
+    text-align: center;
+    line-height: 20px;
+    text-transform: capitalize;
 }
 
 .container-principal button {
@@ -180,7 +208,119 @@
 #game .resultado {
     position: absolute;
     width: 98%;
-    height: 60%;
-    background: #fff;
+    height: 55%;
+    background: #ffffff;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+#game .resultado .btnFechar{
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(0, 110, 255);
+    border: none;
+    color: #ffffff;
+    letter-spacing: 2;
+}
+
+#game .resultado section{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 50% 50%;
+    background-image: url("../img/tbbt.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#game .resultado section .msg{
+    grid-column: 1/4;
+    grid-row: 2;
+    background-color: #ffffffe8;
+    padding: 20px;
+    letter-spacing: 1.5px;
+    font-family: cursive, sans-serif;
+    text-align: center;
+}
+
+#game .resultado section .cpu, #game .resultado section .player{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 70%;
+    background-color: #ffffffa2;
+}
+
+#game .resultado section .cpu span, #game .resultado section .player span{
+    width: 80%;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-family: cursive, sans-serif;
+    font-weight: bold;
+}
+
+#game .resultado section .cpu img, #game .resultado section .player img {
+    width: 50%;
+}
+
+#game .resultado section p{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    background-color: #ffffffa2;
+    grid-row: 1;
+    font-size: 35px;
+    letter-spacing: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+#game .resultado section .player{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+@media screen and (max-width: 768px){
+  .container-principal  .intro{
+        width: 60%;
+        height: 30%;
+        font-size: 15px;
+    }
+
+    #game{
+        width: 60%;
+        height: 40%;
+    }
+}
+
+@media screen and (min-width: 1024px){
+   .container-principal .intro{
+        width: 40%;
+        height: 20%;
+    }
+
+    #game {
+        width: 40%;
+        height: 60%;
+    }
+
+    #game .resultado {
+        width: 40%;
+    }
 }
