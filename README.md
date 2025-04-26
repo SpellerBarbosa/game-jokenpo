@@ -49,6 +49,6 @@ Este jogo é uma versão aprimorada do clássico "Pedra, Papel e Tesoura", inspi
 
 2.Acesse o site
 ```bash
-   [https://spellerbarbosa.github.io/game-jokenpo/]
+   https://spellerbarbosa.github.io/game-jokenpo/
    
    
