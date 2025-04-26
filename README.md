@@ -46,3 +46,8 @@ Este jogo é uma versão aprimorada do clássico "Pedra, Papel e Tesoura", inspi
 1. Clone o repositório do GitHub:
    ```bash
    git clone https://github.com/SpellerBarbosa/game-jokenpo.git
+
+2.Acesse o site
+```bash
+   https://spellerbarbosa.github.io/game-jokenpo/
+   
